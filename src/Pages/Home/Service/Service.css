@@ -1,0 +1,14 @@
+.btn {
+    background-image: linear-gradient(90deg, #35d56d, #82b440);
+    margin-bottom: 5px;
+}
+
+.service {
+    font-family: "Roboto", sans-serif;
+    width: 450px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+}
