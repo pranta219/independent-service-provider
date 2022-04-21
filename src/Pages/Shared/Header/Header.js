@@ -1,29 +1,29 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import useFirebase from '../../../hooks/useFirebase';
 import logo from '../../../img/logo.png'
+import CustomLink from '../../CustomLink/CustomLink';
+import './Header.css'
 
 const Header = () => {
     const { user, handleSingOut } = useFirebase()
     return (
-        <Navbar bg="dark" expand="lg">
-
+        <Navbar className='bar' bg="black" expand="lg">
             <Navbar.Brand href="/"> <img src={logo} height='80' alt="" /></Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle className='bg-light' aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className="justify-content-end">
                 <Nav className="me-auto justify-content-end ">
-                    <Nav.Link className='text-light' href="/">Home</Nav.Link>
-                    <Nav.Link className='text-light' href="/About">About</Nav.Link>
-                    <Nav.Link className='text-light' href="/blogs">Blogs</Nav.Link>
+                    <CustomLink className='text-light mr-4' to='/' >Home</CustomLink>
+                    <CustomLink className='text-light mr-4' to='/about' >About</CustomLink>
+                    <CustomLink className='text-light mr-4' to='/blogs' >Blogs</CustomLink>
                 </Nav>
             </Navbar.Collapse>
             <Nav>
-                <span>{user?.displayName && user.displayName}</span>
                 {
                     user?.uid ?
-                        <button onClick={handleSingOut} className='text-light'>Log out</button>
+                        <button onClick={handleSingOut} className='text-light mr-8'>Log out</button>
                         :
-                        <Nav.Link className='text-light' href="/login">Log in</Nav.Link>
+                        <CustomLink className='text-light mr-8' to='/login' >Log In</CustomLink>
                 }
             </Nav>
         </Navbar>

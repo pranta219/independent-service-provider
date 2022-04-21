@@ -9,7 +9,7 @@ const Service = ({ service }) => {
             <h3>{name}</h3>
             <p>{description}</p>
             <p>Price: ${price}</p>
-            <button className='btn'>Book Now</button>
+            <a href="/login" className='btn'>Book Now</a>
         </div>
     );
 };

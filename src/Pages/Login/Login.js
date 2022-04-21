@@ -1,15 +1,20 @@
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useState } from 'react';
-import app from '../../firebase.init';
 import useFirebase from '../../hooks/useFirebase';
 import './Login.css'
-
-const auth = getAuth(app)
+import { getAuth } from 'firebase/auth';
+import app from '../../firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const { singInWithGoogle } = useFirebase()
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
+    const [error, setError] = useState('')
+    const navigate = useNavigate()
+    const auth = getAuth(app)
+
+    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth)
 
     const handleEmailBlur = event => {
         setEmail(event.target.value);
@@ -18,17 +23,17 @@ const Login = () => {
     const handlePassBlur = event => {
         setPass(event.target.value);
     }
+    if (user) {
+        navigate('/booking')
+    }
 
     const handleFromSubmit = event => {
-        createUserWithEmailAndPassword(auth, email, pass)
-            .then(result => {
-                const user = result.user
-                console.log(user);
-            })
-            .then(error => {
-                console.error(error);
-            })
         event.preventDefault()
+        if (email !== pass) {
+            setError('set email as a password')
+            return
+        }
+        createUserWithEmailAndPassword(email, pass)
     }
     return (
         <div>
@@ -51,6 +56,7 @@ const Login = () => {
                             Forgot Password?
                         </a>
                     </div>
+                    <p className='text-danger'>{error}</p>
                     <div className="flex items-center justify-between">
                         <button className="hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded bg-cyan-500 shadow-lg shadow-cyan-500/50" type="submit">
                             Sign In
