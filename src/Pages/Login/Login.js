@@ -36,9 +36,9 @@ const Login = () => {
         createUserWithEmailAndPassword(email, pass)
     }
     return (
-        <div>
-            <h3 className='text-4xl text-center text-success mt-5 mb-3'>Please Login</h3>
-            <div className="login w-80 mx-auto">
+        <div className="login">
+            <h3 className='text-4xl text-center text-success mt-5 mb-6'>Login Here</h3>
+            <div className="w-80 mx-auto">
                 <form onSubmit={handleFromSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2" for="username">
@@ -52,6 +52,7 @@ const Login = () => {
                         </label>
                         <input onBlur={handlePassBlur} className="shadow appearance-none border border-red-500 rounded py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" required />
                         <p className="text-red-500 text-xs italic">Please choose a password.</p>
+
                         <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
                             Forgot Password?
                         </a>
@@ -65,8 +66,8 @@ const Login = () => {
                         py-2 px-4 rounded hover:bg-indigo-700" type='button'>
                             Google Sing In
                         </button>
-
                     </div>
+                    <p className='mt-3'>New Here? <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="/registration">Sing Up</a></p>
                 </form>
             </div>
         </div>

@@ -6,10 +6,10 @@ const Blogs = () => {
     return (
         <div>
             <div>
-                <h2 className='text-center mt-5'>Qurstion Answer</h2>
+                <h2 className='text-center text-success mt-5'>Qurstion Answer</h2>
             </div>
-            <div className='d-flex p-10'>
-                <MDBCard className='ml-80 mr-20' style={{ maxWidth: '22rem' }}>
+            <div className='d-grid container p-10'>
+                <MDBCard className='mr-20' style={{ maxWidth: '22rem' }}>
                     <MDBCardBody>
                         <MDBCardTitle>Q: What Is The Difference Between Authorization And Authentication</MDBCardTitle>
                         <MDBCardText><span className='text-2xl'>Ans: </span>

@@ -1,3 +1,24 @@
 .bar {
     font-size: large;
 }
+
+.login-out {
+    margin-left: 1100px;
+}
+
+/*make services responsive*/
+@media only screen and (max-width:576px) {
+    .bar {
+        height: 200px;
+    }
+
+    .login-out {
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (min-width: 577px) and (max-width:992px) {
+    .login-out {
+        margin-left: 0px;
+    }
+}

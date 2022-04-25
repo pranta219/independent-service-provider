@@ -10,15 +10,14 @@ const Header = () => {
     return (
         <Navbar className='bar' bg="black" expand="lg">
             <Navbar.Brand href="/"> <img src={logo} height='80' alt="" /></Navbar.Brand>
-            <Navbar.Toggle className='bg-light' aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse className="justify-content-end">
+            <Navbar className="justify-content-end">
                 <Nav className="me-auto justify-content-end ">
                     <CustomLink className='text-light mr-4' to='/' >Home</CustomLink>
                     <CustomLink className='text-light mr-4' to='/about' >About</CustomLink>
                     <CustomLink className='text-light mr-4' to='/blogs' >Blogs</CustomLink>
                 </Nav>
-            </Navbar.Collapse>
-            <Nav>
+            </Navbar>
+            <Nav className='login-out'>
                 {
                     user?.uid ?
                         <button onClick={handleSingOut} className='text-light mr-8'>Log out</button>
